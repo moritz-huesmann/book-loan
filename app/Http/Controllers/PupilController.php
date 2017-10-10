@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
-use App\Booktitle;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class PupilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $buecher = Book::with('booktitle')->get();
-
-        return view('books/index', compact('buecher'));
+        return view('pupil/index', compact('schueler'));
     }
 
     /**
@@ -25,11 +21,9 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-        $buchtitel = Booktitle::all();
-        return view('books/create', compact('buchtitel'));
+           //
     }
 
     /**
@@ -38,35 +32,9 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
     public function store(Request $request)
     {
-            $this->validate(request(), [
-
-            'id'                => 'required',
-            'titel'             => 'required',
-            'anschaffungsjahr'  => 'required',
-            'leihgebuehr'       => 'required|numeric',
-            'neupreis'          => 'required|numeric',
-            'ausgeliehen'       => 'required',
-
-        ]); 
-
- 
-
-        $buch = new Book;
-
-        $buch->id               = $request->id;
-        $buch->booktitle_id     = $request->titel;
-        $buch->anschaffungsjahr = $request->anschaffungsjahr;
-        $buch->leihgebuehr      = $request->leihgebuehr;
-        $buch->neupreis         = $request->neupreis;
-        $buch->ausgeliehen      = $request->ausgeliehen;
-
-
-        $buch->save();
-
-        return redirect()->route('buecher.index');
+        //
     }
 
     /**
@@ -111,8 +79,6 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-                Book::findOrFail($id)->delete();
-        
-        return redirect()->route('buecher.index');
+        //
     }
 }

@@ -35,6 +35,8 @@ class BooktitleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+  
+
     public function store(Request $request)
     {
         // Validate the request...
@@ -47,7 +49,7 @@ class BooktitleController extends Controller
             'kennung'   =>  'required',
             'isbn'      =>  'required|isbn',
 
-        ]);
+        ]); 
 
         $buchtitel = new Booktitle;
 

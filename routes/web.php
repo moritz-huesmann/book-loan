@@ -14,10 +14,12 @@
 use App\Booktitle;
 
 Route::get('/', function () {
-    return redirect()->route('buchtitel.index');
+    return redirect()->route('home.index');
 });
 
 
 Route::resource('buchtitel', 'BooktitleController');
 Route::resource('buchlisten', 'BooklistController');
 Route::resource('buecher', 'BookController');
+Route::resource('home', 'IndexController');
+Route::resource('schueler', 'PupilController');

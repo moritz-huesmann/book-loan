@@ -1,5 +1,3 @@
-
-
 @extends ('layout')
         
 @section ('content')
@@ -16,7 +14,7 @@
         <label for="buchtitel-titel">Titel</label>
 
         <div>
-            <input type="text" class="form-control" name="titel" id="buchtitel-titel" value="" required placeholder="Titels" />
+            <input type="text" class="form-control" name="titel" id="buchtitel-titel" value="" required placeholder="Titel" />
         </div>
     </div>
 
@@ -52,7 +50,7 @@
         <label for="buchtitel-isbn">Best_Nr</label>
 
         <div>
-            <input type="text" class="form-control" name="isbn" id="buchtitel-isbn" value="" required placeholder="Bestellnummer" />
+            <input type="text" class="form-control" name="isbn" id="buchtitel-isbn" value="" required placeholder="ISBN" />
         </div>
     </div>
 
@@ -61,7 +59,8 @@
     
     <div class="form-group">
         <div>
-             <a class="btn btn-info" button-type="submit" >Neuer Buchtitel</a>
+             <button type="submit" class="btn btn-primary btn-lg btn-block">erstellen</button>
+
         </div>
     </div>
 
