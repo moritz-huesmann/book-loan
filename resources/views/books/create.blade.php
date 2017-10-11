@@ -2,6 +2,41 @@
         
 @section ('content')
 
+<script>
+/*
+$ ist jquery. eigentlich ein funktionsname, allerdings schön kurz!
+$(SELECTOR) wählt ein oder mehrere DOM-Elemente aus (die HTML-Elemente...). $("#buch-id") würde zum beispiel das Element mit der ID "buch-id" auswählen
+    $(.klasse) hat alle dom mit "class=klasse", (document) wäre das ganze html-dokument. für mehr am besten in die jquery-doku schauen. 
+console.log() gibt werte auf der entwicklerconsole aus -> In Chrome Strg+Umschalt+C
+
+in dem beispiel unten werden funktionsparameter übergeben, diese parameter sind selbst funktionen. sind callbacks. schlecht zu lesen, hält den code schön kurz.
+*/
+
+$( document ).ready(function() { //wenn die seite noch nicht geladen wurde, aber dieser code schon ausgeführt wird, passiert am ende nichts. ja, das passiert wirklich
+
+    //hier neue funktion für den check von unten. muss mein ich darüber definiert werden, kann aber sein dass ich mich mit C vertu
+
+
+
+    $("input").each(function(index){ // loop über jedes input-tag auf dieser seite. Man kann funktionen hier aneinander hängen (bietet nicht jede Sprache und nicht jedes Framework)
+    var elem = $(this); //aktuelles objekt (DOM-Element, in diesem Fall: Das Input-Feld auf der Seite)
+    if(elem.attr("validation") == "true"){ //soll das feld validiert werden? 
+		var validationType=elem.attr("validationtype"); //validation-typ speichern. zum beispiel dürfte die ID hier nur zahlen enthalten
+        console.log("added field >" + elem.attr("id") + "< with validation type: " + validationType ); // ausgeben
+        elem.data('oldVal', elem.val()); // den alten wert vom input speichern.
+		elem.bind("propertychange change click keyup input paste", function(event){ //schnipsel aus stackoverflow (https://stackoverflow.com/questions/1948332/detect-all-changes-to-a-input-type-text-immediately-using-jquery)
+            if (elem.data('oldVal') != elem.val()) { //falls der wert sich geändert hat
+                elem.data('oldVal', elem.val()); //den wert natürlich aktualisieren
+			    console.log(elem.attr("id") + " changed"); //noch mal loggen
+                //Hier deinen richtigen Check einbauen
+                //Kannst mehrere ifs machen
+                // oder ne neue funktion schreiben die das mitm switch case macht
+            }
+        });
+    }
+});
+});
+</script>
 
 <h1>Neues Buch</h1>
 
